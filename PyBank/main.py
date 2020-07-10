@@ -46,7 +46,7 @@ gd_index =  change_profit.index(greatest_decrease)
 print(f"Total Months: {len(month)}")
 print(f"Total: ${(total_profit)}")
 print(f"Average Change: ${average_change}")
-print(f"Greatest Increase: {month[gi_index+1]} {greatest_increase}")
+print(f"Greatest Increase: {month[gi_index+1]}  {greatest_increase}")
 print(f"Greatest Decrease: {month[gd_index+1]} {greatest_decrease}")
 
 #Set output file
@@ -61,7 +61,7 @@ with open(output_file, "w") as textfile:
     textfile.write(f"Total Months: {len(month)} \n")
     textfile.write(f"Total: ${(total_profit)} \n")
     textfile.write(f"Average Change: ${average_change} \n")
-    textfile.write(f"Greatest Increase: {month[gi_index+1]} {greatest_increase} \n")
+    textfile.write(f"Greatest Increase: {month[gi_index+1]}  {greatest_increase} \n")
     textfile.write(f"Greatest Decrease: {month[gd_index+1]} {greatest_decrease} \n")
 
 
