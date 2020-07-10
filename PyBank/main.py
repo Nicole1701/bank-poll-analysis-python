@@ -10,7 +10,6 @@ month = []
 profit = []
 change_profit = []
 
-
 # Open and read csv
 with open(budget_csv) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
@@ -29,17 +28,40 @@ with open(budget_csv) as csvfile:
         change_profit.append(diff)
 
 # Definte Outputs
-month_count = len(month)
+month_count = len(month) - 1
 total_profit = sum(profit)
 total_change = sum(change_profit)
-print(total_change)
-average_change = (total_change)/(month_count)
-greatest_increase = max(change_profit)
-greatest_decrease = min(change_profit)
+average_change = round((total_change)/(month_count), 2)
 
-#Print Summary Table
-print(f"Total Months: {month_count}")
+# Find greatest increase in profits & month
+greatest_increase = max(change_profit)
+gi_index = change_profit.index(greatest_increase)
+
+# Find greatest decrease in profits & month
+greatest_decrease = min(change_profit)
+gd_index =  change_profit.index(greatest_decrease)
+
+
+# Create Summary Table    
+print(f"Total Months: {len(month)}")
 print(f"Total: ${(total_profit)}")
 print(f"Average Change: ${average_change}")
-print(f"Greatest Increase: {greatest_increase}")
-print(f"Greatest Decrease: {greatest_decrease}")
+print(f"Greatest Increase: {month[gi_index+1]} {greatest_increase}")
+print(f"Greatest Decrease: {month[gd_index+1]} {greatest_decrease}")
+
+#Set output file
+output_file =  os.path.join("Analysis", "bank_final.txt")
+
+# Export Data
+with open(output_file, "w") as textfile:
+    
+    textfile.write("----------------------------\n")
+    textfile.write("     Financial Analysis     \n")
+    textfile.write("----------------------------\n")
+    textfile.write(f"Total Months: {len(month)} \n")
+    textfile.write(f"Total: ${(total_profit)} \n")
+    textfile.write(f"Average Change: ${average_change} \n")
+    textfile.write(f"Greatest Increase: {month[gi_index+1]} {greatest_increase} \n")
+    textfile.write(f"Greatest Decrease: {month[gd_index+1]} {greatest_decrease} \n")
+
+
