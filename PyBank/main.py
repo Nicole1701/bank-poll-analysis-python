@@ -5,12 +5,12 @@ import csv
 # Path to open csv file
 budget_csv = os.path.join(".", "Resources", "budget_data.csv")
 
-#Lists to store month and profit
+# Create lists to store month and profit data
 month = []
 profit = []
 change_profit = []
 
-# Open and read csv
+# Open and read the csv file
 with open(budget_csv) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     budget_header = next(csvfile)
@@ -20,8 +20,7 @@ with open(budget_csv) as csvfile:
         month.append(row[0])
         profit.append(int(row[1]))
 
-    # Define Change in Profits 
-    # (stackoverflow.com/questions/7172933/calculate-difference-between-adjacent-items-in-a-python-list)
+    # Define Change in Profits     
     for rows in range(1, len(profit)):        
         diff = int(profit[rows])-int(profit[rows-1]) 
     
@@ -53,10 +52,10 @@ print(f"Average Change: ${average_change}")
 print(f"Greatest Increase: {month[gi_index+1]}  {greatest_increase}")
 print(f"Greatest Decrease: {month[gd_index+1]} {greatest_decrease}")
 
-#Set output file
+# Set output file
 output_file =  os.path.join("Analysis", "bank_final.txt")
 
-# Export Data
+# Export data to text file
 with open(output_file, "w") as textfile:
     
     textfile.write("----------------------------\n")
