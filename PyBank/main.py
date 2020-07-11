@@ -15,6 +15,7 @@ with open(budget_csv) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     budget_header = next(csvfile)
     
+    # Append month and profit data into lists
     for row in csvreader:
         month.append(row[0])
         profit.append(int(row[1]))
@@ -43,6 +44,9 @@ gd_index =  change_profit.index(greatest_decrease)
 
 
 # Create Summary Table    
+print("----------------------------")
+print("     Financial Analysis     ")
+print("----------------------------")
 print(f"Total Months: {len(month)}")
 print(f"Total: ${(total_profit)}")
 print(f"Average Change: ${average_change}")
