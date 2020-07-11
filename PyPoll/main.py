@@ -27,6 +27,7 @@ with open(budget_csv) as csvfile:
             candidate_count[row[2]] += 1
 
 # Determine winner
+# www.geeksforgeeks.org/python-get-key-with-maximum-value-in-dictionary/
 winner = max(candidate_count, key=candidate_count.get) 
 
 # Create Summary Table

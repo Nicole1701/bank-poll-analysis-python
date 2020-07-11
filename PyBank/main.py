@@ -20,7 +20,8 @@ with open(budget_csv) as csvfile:
         month.append(row[0])
         profit.append(int(row[1]))
 
-    # Define Change in Profits     
+    # Define Change in Profits  
+    # stackoverflow.com/questions/7172933/calculate-difference-between-adjacent-items-in-a-python-list
     for rows in range(1, len(profit)):        
         diff = int(profit[rows])-int(profit[rows-1]) 
     
